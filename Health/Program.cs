@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace Health
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please enter your Name");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Please enter your Body temperature");
+            double bodyTemp;
+            string input;
+
+            do
+            {
+                Console.WriteLine($"{name}, you made a mistake. Please enter your Body temperature");
+                input = Console.ReadLine();
+            } while (!double.TryParse(input, out bodyTemp));
+
+
+            if (bodyTemp < 35 || bodyTemp > 37.1)
+                Console.WriteLine($"{name}, your body temperature {bodyTemp}. Please Visit a doctor");
+            else if (bodyTemp >= 35 && bodyTemp <= 36.8)
+                Console.WriteLine($"{name}, your body temperature {bodyTemp}. You may pass");
+            else if (bodyTemp > 36.8 && bodyTemp <= 37.1)
+                Console.WriteLine($"{name}, your body temperature {bodyTemp}. Get some rest");
+        }
+    }
+}
