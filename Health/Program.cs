@@ -2,9 +2,9 @@
 
 namespace Health
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Please enter your Name");
             string name = Console.ReadLine();
@@ -19,13 +19,21 @@ namespace Health
                 input = Console.ReadLine();
             } while (!double.TryParse(input, out bodyTemp));
 
+            Console.WriteLine(Output(name, bodyTemp));
 
+
+        }
+
+        public static string Output(string name, double bodyTemp)
+        {
             if (bodyTemp < 35 || bodyTemp > 37.1)
-                Console.WriteLine($"{name}, your body temperature {bodyTemp}. Please Visit a doctor");
+                return $"{name}, your body temperature {bodyTemp}. Please Visit a doctor";
             else if (bodyTemp >= 35 && bodyTemp <= 36.8)
-                Console.WriteLine($"{name}, your body temperature {bodyTemp}. You may pass");
+                return $"{name}, your body temperature {bodyTemp}. You may pass";
             else if (bodyTemp > 36.8 && bodyTemp <= 37.1)
-                Console.WriteLine($"{name}, your body temperature {bodyTemp}. Get some rest");
+                return $"{name}, your body temperature {bodyTemp}. Get some rest";
+            else
+                return "Incorrect data";
         }
     }
 }
